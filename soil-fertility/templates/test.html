@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soil Fertility Report</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    .report-container {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .summary-card {
+      background-color: #eaf6ff;
+      border-left: 6px solid #3498db;
+      border-radius: 10px;
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .summary-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+
+    .summary-card .percent {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .detail-card {
+      grid-column: span 2;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 25px 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      margin-top: 10px;
+    }
+
+    .detail-card h3 {
+      margin-top: 0;
+      color: #34495e;
+      font-size: 1.4rem;
+    }
+
+    .detail-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .report-container {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-card {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="report-container">
+    <!-- Summary Cards -->
+    <div class="summary-card">
+      <h3>Fertility Score</h3>
+      <div class="percent">82%</div>
+    </div>
+
+    <div class="summary-card">
+      <h3>Interpretation</h3>
+      <div class="percent">Optimal</div>
+    </div>
+
+    <!-- Detail Cards -->
+    <div class="detail-card">
+      <h3>Fertilizer Recommendation</h3>
+      <p>Apply 40 kg/ha of NPK 10:26:26 before sowing. Monitor nitrogen demand and apply urea (if needed) after 30 days. Add compost to retain organic content.</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Crop Recommendation</h3>
+      <p>Recommended crops: maize, wheat, chickpeas, sunflower. These crops align well with current soil fertility and moisture levels.</p>
+    </div>
+  </div>
+
+</body>
+</html>

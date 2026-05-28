@@ -1,0 +1,286 @@
+<html>
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../static/images/favicon.png">
+      <title>Crop</title>
+      <!-- CSS FILES START -->
+      <link href="../static/css/custom.css" rel="stylesheet">
+      <link href="../static/css/color.css" rel="stylesheet">
+      <link href="../static/css/responsive.css" rel="stylesheet">
+      <link href="../static/css/owl.carousel.min.css" rel="stylesheet">
+      <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../static/css/prettyPhoto.css" rel="stylesheet">
+      <link href="../static/css/all.min.css" rel="stylesheet">
+      <!-- CSS FILES End -->
+ <style>
+    .lcc-container {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .lcc-image {
+      width: 100px;
+      height: 100px;
+      border: 4px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+
+    .lcc-image.selected {
+      border-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+  </style>
+   </head>
+   <body>
+    <div class="wrapper">
+         <!--Header Start-->
+         <header class="header-style-2">
+            <nav class="navbar navbar-expand-lg">
+               <a class="navbar-brand" href="index-2.html"><img src="images/h2logo.png" alt=""></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav mr-auto">
+                     <li class="nav-item dropdown">
+                        <a class="nav-link" href="/userhome" > Home </a>
+                        
+                     </li>
+                     <li class="nav-item"> <a class="nav-link" href="/logout">Logout</a> </li>
+					 
+					 
+			     </ul>
+                  <ul class="topnav-right">
+                    
+                  </ul>
+               </div>
+            </nav>
+         </header>
+         <div id="search">
+           
+         </div>
+		 
+		 <section class="wf100 p100 inner-header">
+            <div class="container">
+               <h1>User</h1>
+               <ul>
+                  <li><a href="/userhome">Prediction</a></li>
+				  <li><a href="/userhome1">Recommendation</a></li>
+                 
+               </ul>
+            </div>
+         </section>
+		 
+		
+		 <section class="wf100 p80">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-8">
+                     <div class="myaccount-form">
+                        <h3>Fertility Predictor</h3>
+                        <form name="form1" method="post">
+                           <div class="row">
+						   	
+                              <div class="col-md-6">
+							  <label>N [0 to 139]</label>
+                                    <input type="text" name="v1" class="form-control" required>
+                                
+                              </div>
+                              <div class="col-md-6">
+							  <label>P [0 to 139]</label>
+                                    <input type="text" name="v2" class="form-control" required>
+                                
+                              </div>
+                              <div class="col-md-6">
+							  <label>K [0 to 199]</label>
+                                    <input type="text" name="v3" class="form-control" required>
+                                 
+                              </div>
+                              <div class="col-md-6">
+							  <label>Temperature [10.15 to 39.98]</label>
+                                    <input type="text" name="temp" class="form-control" required>
+                                 
+                              </div>
+							  <div class="col-md-6">
+                                 
+								 <label>Humidity [10.29 to 99.85]</label>
+                                    <input type="text" name="humidity" class="form-control" required>
+                                
+                              </div>
+							  <div class="col-md-6">
+                                 
+								 <label>PH [3.5 to 9.49]</label>
+                                    <input type="text" name="ph" class="form-control" required>
+                                
+                              </div>
+							  <div class="col-md-6">
+                                 
+								 <label>Rainfall [0 to 298.45]</label>
+                                    <input type="text" name="rainfall" class="form-control" required>
+                                 
+                              </div>
+                              <div class="col-md-6">
+							  <span>Select LLC</span><br>
+							  <img src="../static/leaf/l1.jpg" width="100" height="100" class="lcc-image" data-value="1" onClick="selectImage(this)">
+							  <img src="../static/leaf/l2.jpg" width="100" height="100" class="lcc-image" data-value="2" onClick="selectImage(this)">
+							  <img src="../static/leaf/l3.jpg" width="100" height="100" class="lcc-image" data-value="3" onClick="selectImage(this)">
+							  <img src="../static/leaf/l4.jpg" width="100" height="100" class="lcc-image" data-value="4" onClick="selectImage(this)">
+							  <img src="../static/leaf/l5.jpg" width="100" height="100" class="lcc-image" data-value="5" onClick="selectImage(this)">
+							  </div>
+                              <input type="hidden" id="selectedValue" name="selectedValue" placeholder="Selected Shade" readonly>
+							 </div>
+							 <br>
+							 <div class="row"> 
+                              <div class="col-md-12">
+                                 <button type="submit" class="register">Submit</button>
+                              </div>
+                           </ul>
+                        </form>
+						
+						<script>
+						// LCC (Leaf Color Chart)
+  function selectImage(img) {
+    // Deselect all images
+    document.querySelectorAll('.lcc-image').forEach(el => el.classList.remove('selected'));
+    // Select clicked image
+    img.classList.add('selected');
+    // Get value and show in textbox
+    const selectedValue = img.getAttribute('data-value');
+    document.getElementById('selectedValue').value = `Shade ${selectedValue}`;
+  }
+</script>
+						<p>&nbsp;</p>
+						
+						
+						
+				<br>		
+					
+						
+						{% if st2=="1" %}
+						
+						
+		
+	
+ <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    .report-container {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .summary-card {
+      background-color: #eaf6ff;
+      border-left: 6px solid #3498db;
+      border-radius: 10px;
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .summary-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #2c3e50;
+    }
+
+    .summary-card .percent {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .detail-card {
+      grid-column: span 2;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 25px 30px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      margin-top: 10px;
+    }
+
+    .detail-card h3 {
+      margin-top: 0;
+      color: #34495e;
+      font-size: 1.4rem;
+    }
+
+    .detail-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .report-container {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-card {
+        grid-column: span 1;
+      }
+    }
+  </style>	
+	
+	<div class="row">
+	<div class="col-md-12">
+	<h4 style="color:#006699" align="center">Prediction: SoilFerNet and LLCNet </h4>
+   </div>
+   </div>
+
+				
+	 <div class="report-container">
+    <!-- Summary Cards -->
+    <div class="summary-card">
+      <h3>Fertility Score</h3>
+      <div class="percent">{{ result['Fertility Score'] }}%</div>
+    </div>
+
+    <div class="summary-card">
+      <h3>Interpretation</h3>
+      <div class="percent"> {{ result['Interpretation'] }}</div>
+    </div>
+
+    <!-- Detail Cards -->
+    <div class="detail-card">
+      <h3>Fertilizer Recommendation</h3>
+      <p>{{ result['Fertilizer Recommendation'] }}</p>
+    </div>
+
+    <div class="detail-card">
+      <h3>Crop Recommendation</h3>
+      <p>{{ result['Crop Recommendation'] }}</p>
+    </div>
+  </div>			
+	
+							
+							
+						{% endif %}
+						
+						{% if st=="2" %}
+						<span style="color:#FF0000">Incorrect Input!</span>
+						{% endif %}
+                     </div>
+                  </div>
+                  <div class="col-lg-4">
+                    
+                  </div>
+               </div>
+            </div>
+         </section>
