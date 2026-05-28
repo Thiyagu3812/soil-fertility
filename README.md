@@ -128,34 +128,10 @@ soil-fertility-crop-recommendation-system/
 
 > Extra template/assets required by the current Flask routes are preserved to keep the project runnable.
 
----
-
-## 📸 Project Screenshots
-
-### Home Page
-![Home Page](docs/Screenshorts/Home_page.png)
-
-### Login Page
-![Login Page](docs/Screenshorts/User.png)
-
-### Prediction Page
-![Prediction Page](docs/Screenshorts/Fertility_predict.png)
-
-### Result Page
-![Result Page](docs/Screenshorts/Result.png)
-
----
 
 ## 🎬 Project Demo
 
 ![Project Demo](soil-fertility/docs/demo/Home_page.png)
-
----
-
-## 🏗️ Architecture Diagram
-
-![Architecture Diagram](docs/Screenshorts/Architecture_Dig.jpg)
-
 
 ## ⚙️ Installation and Setup
 
